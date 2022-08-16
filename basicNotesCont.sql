@@ -34,3 +34,7 @@ ORDER BY 1;
 SELECT COUNT(money_in)
 FROM transactions
 WHERE currency = 'BIT';
+
+-- Selecting all where ages are not equal to 50
+select * from Actors
+where Age <> 50

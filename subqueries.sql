@@ -1,5 +1,6 @@
-/*  Subqueries, sometimes referred to as inner queries or nested queries, are used to transform table data by nesting one query within another query.
-
+/*  Subqueries, sometimes referred to as inner queries or nested queries, 
+are used to transform table data by nesting one query within another query.
+A nested sub query is when the inner query is run first
 */
 --Subquery is very similar to a join does the same thing but the code is more readable fashion inner query is run first
 SELECT first_name, last_name

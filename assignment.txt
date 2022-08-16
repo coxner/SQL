@@ -1,0 +1,999 @@
+/* Queries to Create tables 
+    CHRISTIAN OXNER
+*/ 
+
+#Creates database
+CREATE DATABASE finalproject204;
+
+#Creates the client table 
+CREATE TABLE client (
+    clientid INT PRIMARY KEY,
+    clientfirstname VARCHAR(255),
+    clientlastname VARCHAR(255),
+    clientdob YEAR,
+    occupation VARCHAR(255),
+    INDEX(clientid, clientfirstname, clientlastname, clientdob)
+);
+
+#Creates table author
+CREATE TABLE author (
+    authorid INT PRIMARY KEY,
+    authorfirstname VARCHAR(255),
+    authorlastname VARCHAR(255),
+    authornationality VARCHAR(255),
+    INDEX(authorid, authorfirstname, authorlastname, authornationality)
+);
+
+Create Table book 
+CREATE TABLE book (
+    bookid INT PRIMARY KEY,
+    booktitle VARCHAR(255),
+    bookauthor INT NOT NULL,
+    genre VARCHAR(255),
+    FOREIGN KEY (bookauthor) REFERENCES author(bookauthor),
+    INDEX(bookid, booktitle, bookauthor, genre)
+);
+
+#Creates borrower table 
+CREATE TABLE borrower (
+    borrowerid INT PRIMARY KEY,
+    clientid INT NOT NULL,
+    bookid INT NOT NULL,
+    borrowdate DATE, 
+    FOREIGN KEY (bookid) REFERENCES book(bookid),
+    FOREIGN KEY (clientid) REFERENCES client(clientid),
+    INDEX (borrowerid, clientid, bookid, borrowdate)
+);
+
+#NOTE WAS NOT SPECIFIED LENGTH OF TABLE TYPE VALUES SO PUT IN 255 FOR VARCHAR AS A DEFAULT VALUE
+
+/*Queries used for populating database used excel to create a formula that allowed me to drag down insert statements
+instead of creating all them manually*/
+/*Populates client table*/
+
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(1,'Kaiden','Hill',2006,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(2,'Alina','Morton',2010,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(3,'Fania','Brooks',1983,'Food Scientist');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(4,'Courtney','Jensen',2006,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(5,'Brittany','Hill',1983,'Firefighter');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(6,'Max','Rogers',2005,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(7,'Margaret','McCarthy',1981,'School Psychologist');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(8,'Julie','McCarthy',1973,'Professor');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(9,'Ken','McCarthy',1974,'Securities Clerk');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(10,'Britany','O'Quinn',1984,'Violinist');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(11,'Conner','Gardner',1998,'Licensed Massage Therapist');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(12,'Mya','Austin',1960,'Parquet Floor Layer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(13,'Thierry','Rogers',2004,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(14,'Eloise','Rogers',1984,'Computer Security Manager');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(15,'Gerard','Jackson',1979,'Oil Exploration Engineer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(16,'Randy','Day',1986,'Aircraft Electrician');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(17,'Jodie','Page',1990,'Manufacturing Director');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(18,'Coral','Rice',1996,'Window Washer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(19,'Ayman','Austin',2002,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(20,'Jaxson','Austin',1999,'Repair Worker');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(21,'Joel','Austin',1973,'Police Officer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(22,'Alina','Austin',2010,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(23,'Elin','Austin',1962,'Payroll Clerk');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(24,'Ophelia','Wolf',2004,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(25,'Eliot','McGuire',1967,'Dentist');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(26,'Peter','McKinney',1968,'Professor');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(27,'Annabella','Henry',1974,'Nurse');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(28,'Anastasia','Baker',2001,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(29,'Tyler','Baker',1984,'Police Officer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(30,'Lilian','Ross',1983,'Insurance Agent');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(31,'Thierry','Arnold',1975,'Bus Driver');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(32,'Angelina','Rowe',1979,'Firefighter');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(33,'Marcia','Rowe',1974,'Health Educator');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(34,'Martin','Rowe',1976,'Ship Engineer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(35,'Adeline','Rowe',2005,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(36,'Colette','Rowe',1963,'Professor');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(37,'Diane','Clark',1975,'Payroll Clerk');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(38,'Caroline','Clark',1960,'Dentist');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(39,'Dalton','Clayton',1982,'Police Officer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(40,'Steve','Clayton',1990,'Bus Driver');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(41,'Melanie','Clayton',1987,'Computer Engineer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(42,'Alana','Wilson',2007,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(43,'Carson','Byrne',1995,'Food Scientist');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(44,'Conrad','Byrne',2007,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(45,'Ryan','Porter',2008,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(46,'Elin','Porter',1978,'Computer Programmer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(47,'Tyler','Harvey',2007,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(48,'Arya','Harvey',2008,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(49,'Serena','Harvey',1978,'School Teacher');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(50,'Lilly','Franklin',1976,'Doctor');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(51,'Mai','Franklin',1994,'Dentist');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(52,'John','Franklin',1999,'Firefighter');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(53,'Judy','Franklin',1995,'Firefighter');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(54,'Katy','Lloyd',1992,'School Teacher');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(55,'Tamara','Allen',1963,'Ship Engineer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(56,'Maxim','Lyons',1985,'Police Officer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(57,'Allan','Lyons',1983,'Computer Engineer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(58,'Marc','Harris',1980,'School Teacher');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(59,'Elin','Young',2009,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(60,'Diana','Young',2008,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(61,'Diane','Young',2006,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(62,'Alana','Bird',2003,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(63,'Anna','Becker',1979,'Security Agent');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(64,'Katie','Grant',1977,'Manager');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(65,'Joan','Grant',2010,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(66,'Bryan','Bell',2001,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(67,'Belle','Miller',1970,'Professor');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(68,'Peggy','Stevens',1990,'Bus Driver');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(69,'Steve','Williamson',1975,'HR Clerk');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(70,'Tyler','Williamson',1999,'Doctor');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(71,'Izabelle','Williamson',1990,'Systems Analyst');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(72,'Annabel','Williamson',1960,'Cashier');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(73,'Mohamed','Waters',1966,'Insurance Agent');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(74,'Marion','Newman',1970,'Computer Programmer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(75,'Ada','Williams',1986,'Computer Programmer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(76,'Sean','Scott',1983,'Bus Driver');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(77,'Farrah','Scott',1974,'Ship Engineer');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(78,'Christine','Lambert',1973,'School Teacher');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(79,'Alysha','Lambert',2007,'Student');
+INSERT INTO  client (clientid,clientfirstname,clientlastname,clientdob, Occupation) values(80,'Maia','Grant',1984,'School Teacher');
+
+/*Populates borrower table*/
+
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(1,35,17,STR_TO_DATE('20/07/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(2,1,3,STR_TO_DATE('19/04/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(3,42,8,STR_TO_DATE('03/10/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(4,62,16,STR_TO_DATE('05/04/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(5,53,13,STR_TO_DATE('17/01/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(6,33,15,STR_TO_DATE('26/11/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(7,40,14,STR_TO_DATE('21/01/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(8,64,2,STR_TO_DATE('10/09/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(9,56,30,STR_TO_DATE('02/08/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(10,23,2,STR_TO_DATE('28/06/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(11,46,19,STR_TO_DATE('18/11/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(12,61,20,STR_TO_DATE('24/11/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(13,58,7,STR_TO_DATE('17/06/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(14,46,16,STR_TO_DATE('12/02/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(15,80,21,STR_TO_DATE('18/03/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(16,51,23,STR_TO_DATE('01/09/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(17,49,18,STR_TO_DATE('28/07/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(18,43,18,STR_TO_DATE('04/11/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(19,30,2,STR_TO_DATE('10/08/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(20,48,24,STR_TO_DATE('13/05/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(21,71,5,STR_TO_DATE('05/09/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(22,35,3,STR_TO_DATE('03/07/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(23,57,1,STR_TO_DATE('17/03/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(24,23,25,STR_TO_DATE('16/08/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(25,20,12,STR_TO_DATE('24/07/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(26,25,7,STR_TO_DATE('31/01/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(27,72,29,STR_TO_DATE('10/04/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(28,74,20,STR_TO_DATE('31/07/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(29,53,14,STR_TO_DATE('20/02/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(30,32,10,STR_TO_DATE('24/07/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(31,12,15,STR_TO_DATE('25/04/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(32,77,13,STR_TO_DATE('09/06/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(33,30,4,STR_TO_DATE('24/10/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(34,37,24,STR_TO_DATE('14/01/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(35,27,26,STR_TO_DATE('05/06/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(36,1,16,STR_TO_DATE('06/05/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(37,21,9,STR_TO_DATE('19/03/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(38,69,28,STR_TO_DATE('29/03/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(39,17,19,STR_TO_DATE('14/03/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(40,8,9,STR_TO_DATE('22/04/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(41,63,18,STR_TO_DATE('25/01/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(42,65,20,STR_TO_DATE('10/10/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(43,51,19,STR_TO_DATE('28/07/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(44,23,12,STR_TO_DATE('25/01/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(45,17,4,STR_TO_DATE('18/04/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(46,68,5,STR_TO_DATE('06/09/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(47,46,13,STR_TO_DATE('30/09/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(48,15,13,STR_TO_DATE('05/07/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(49,11,19,STR_TO_DATE('14/12/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(50,78,15,STR_TO_DATE('26/01/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(51,47,9,STR_TO_DATE('03/03/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(52,68,7,STR_TO_DATE('26/05/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(53,37,26,STR_TO_DATE('06/02/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(54,48,27,STR_TO_DATE('30/12/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(55,9,21,STR_TO_DATE('21/10/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(56,29,8,STR_TO_DATE('01/04/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(57,64,18,STR_TO_DATE('29/08/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(58,61,26,STR_TO_DATE('21/02/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(59,39,28,STR_TO_DATE('26/07/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(60,73,18,STR_TO_DATE('22/08/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(61,11,13,STR_TO_DATE('17/01/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(62,45,6,STR_TO_DATE('20/07/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(63,33,13,STR_TO_DATE('18/03/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(64,10,17,STR_TO_DATE('06/06/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(65,28,18,STR_TO_DATE('17/02/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(66,51,3,STR_TO_DATE('09/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(67,29,2,STR_TO_DATE('18/09/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(68,28,30,STR_TO_DATE('14/09/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(69,74,20,STR_TO_DATE('12/12/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(70,15,22,STR_TO_DATE('14/01/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(71,57,8,STR_TO_DATE('20/08/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(72,2,5,STR_TO_DATE('18/01/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(73,74,12,STR_TO_DATE('14/04/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(74,51,10,STR_TO_DATE('25/02/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(75,25,17,STR_TO_DATE('24/02/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(76,45,21,STR_TO_DATE('10/02/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(77,27,25,STR_TO_DATE('03/08/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(78,32,28,STR_TO_DATE('15/06/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(79,71,21,STR_TO_DATE('21/05/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(80,75,26,STR_TO_DATE('03/05/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(81,56,32,STR_TO_DATE('23/12/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(82,26,32,STR_TO_DATE('16/05/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(83,66,32,STR_TO_DATE('30/05/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(84,57,18,STR_TO_DATE('15/09/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(85,40,15,STR_TO_DATE('02/09/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(86,65,4,STR_TO_DATE('17/08/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(87,54,7,STR_TO_DATE('19/12/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(88,29,4,STR_TO_DATE('22/07/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(89,44,9,STR_TO_DATE('31/12/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(90,56,31,STR_TO_DATE('13/06/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(91,17,4,STR_TO_DATE('01/04/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(92,35,16,STR_TO_DATE('19/07/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(93,22,18,STR_TO_DATE('22/06/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(94,39,24,STR_TO_DATE('29/05/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(95,63,14,STR_TO_DATE('20/01/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(96,53,21,STR_TO_DATE('31/07/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(97,40,9,STR_TO_DATE('10/07/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(98,52,4,STR_TO_DATE('05/04/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(99,27,20,STR_TO_DATE('04/09/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(100,72,29,STR_TO_DATE('06/12/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(101,49,16,STR_TO_DATE('19/12/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(102,6,12,STR_TO_DATE('04/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(103,74,31,STR_TO_DATE('27/07/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(104,48,32,STR_TO_DATE('29/06/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(105,69,2,STR_TO_DATE('27/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(106,60,32,STR_TO_DATE('29/10/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(107,45,22,STR_TO_DATE('12/06/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(108,42,15,STR_TO_DATE('14/05/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(109,79,8,STR_TO_DATE('13/10/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(110,70,18,STR_TO_DATE('04/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(111,34,8,STR_TO_DATE('06/03/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(112,43,8,STR_TO_DATE('19/12/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(113,42,32,STR_TO_DATE('20/04/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(114,67,5,STR_TO_DATE('06/03/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(115,80,25,STR_TO_DATE('23/06/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(116,54,11,STR_TO_DATE('03/05/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(117,34,28,STR_TO_DATE('30/08/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(118,65,20,STR_TO_DATE('26/08/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(119,61,19,STR_TO_DATE('05/01/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(120,38,12,STR_TO_DATE('17/01/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(121,51,4,STR_TO_DATE('13/05/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(122,7,16,STR_TO_DATE('17/03/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(123,46,16,STR_TO_DATE('25/11/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(124,75,30,STR_TO_DATE('12/08/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(125,72,32,STR_TO_DATE('12/03/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(126,44,17,STR_TO_DATE('15/06/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(127,68,15,STR_TO_DATE('21/02/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(128,21,1,STR_TO_DATE('19/06/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(129,14,25,STR_TO_DATE('10/10/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(130,68,21,STR_TO_DATE('27/05/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(131,35,20,STR_TO_DATE('19/03/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(132,16,27,STR_TO_DATE('08/08/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(133,79,31,STR_TO_DATE('07/03/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(134,14,17,STR_TO_DATE('28/04/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(135,29,28,STR_TO_DATE('11/03/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(136,41,4,STR_TO_DATE('08/08/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(137,42,3,STR_TO_DATE('23/02/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(138,45,3,STR_TO_DATE('10/07/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(139,36,16,STR_TO_DATE('19/07/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(140,36,30,STR_TO_DATE('07/08/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(141,54,32,STR_TO_DATE('14/03/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(142,61,15,STR_TO_DATE('28/03/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(143,1,13,STR_TO_DATE('17/05/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(144,43,1,STR_TO_DATE('14/05/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(145,37,14,STR_TO_DATE('30/07/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(146,62,17,STR_TO_DATE('19/09/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(147,50,22,STR_TO_DATE('02/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(148,45,1,STR_TO_DATE('24/07/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(149,32,17,STR_TO_DATE('10/03/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(150,13,28,STR_TO_DATE('14/02/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(151,15,9,STR_TO_DATE('11/08/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(152,10,19,STR_TO_DATE('29/08/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(153,66,3,STR_TO_DATE('27/11/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(154,68,29,STR_TO_DATE('12/07/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(155,21,14,STR_TO_DATE('27/06/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(156,35,9,STR_TO_DATE('22/01/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(157,17,24,STR_TO_DATE('25/08/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(158,40,21,STR_TO_DATE('09/07/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(159,1,24,STR_TO_DATE('28/03/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(160,70,27,STR_TO_DATE('10/07/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(161,80,26,STR_TO_DATE('24/04/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(162,29,5,STR_TO_DATE('18/10/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(163,76,12,STR_TO_DATE('25/04/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(164,22,4,STR_TO_DATE('24/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(165,2,2,STR_TO_DATE('26/10/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(166,35,13,STR_TO_DATE('28/02/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(167,40,8,STR_TO_DATE('02/10/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(168,68,9,STR_TO_DATE('03/01/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(169,32,5,STR_TO_DATE('13/11/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(170,34,17,STR_TO_DATE('15/09/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(171,34,16,STR_TO_DATE('13/04/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(172,80,30,STR_TO_DATE('13/10/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(173,20,32,STR_TO_DATE('17/11/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(174,36,10,STR_TO_DATE('01/09/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(175,78,12,STR_TO_DATE('27/06/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(176,57,8,STR_TO_DATE('22/03/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(177,75,11,STR_TO_DATE('27/06/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(178,71,10,STR_TO_DATE('01/08/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(179,48,22,STR_TO_DATE('29/09/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(180,19,16,STR_TO_DATE('21/02/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(181,79,30,STR_TO_DATE('20/08/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(182,70,13,STR_TO_DATE('16/09/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(183,30,6,STR_TO_DATE('10/02/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(184,45,12,STR_TO_DATE('12/10/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(185,30,27,STR_TO_DATE('23/11/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(186,26,3,STR_TO_DATE('13/08/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(187,66,6,STR_TO_DATE('14/01/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(188,47,15,STR_TO_DATE('10/02/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(189,53,30,STR_TO_DATE('08/08/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(190,80,16,STR_TO_DATE('31/03/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(191,70,13,STR_TO_DATE('03/02/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(192,14,25,STR_TO_DATE('27/03/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(193,46,22,STR_TO_DATE('13/01/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(194,30,32,STR_TO_DATE('06/08/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(195,60,14,STR_TO_DATE('27/11/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(196,14,13,STR_TO_DATE('23/05/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(197,71,15,STR_TO_DATE('22/06/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(198,38,21,STR_TO_DATE('27/12/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(199,69,30,STR_TO_DATE('29/04/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(200,49,31,STR_TO_DATE('03/06/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(201,28,28,STR_TO_DATE('29/05/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(202,49,3,STR_TO_DATE('30/08/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(203,75,1,STR_TO_DATE('29/10/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(204,78,3,STR_TO_DATE('12/05/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(205,43,18,STR_TO_DATE('25/03/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(206,27,21,STR_TO_DATE('22/02/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(207,64,22,STR_TO_DATE('03/04/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(208,21,11,STR_TO_DATE('09/12/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(209,66,29,STR_TO_DATE('20/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(210,45,13,STR_TO_DATE('15/04/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(211,48,30,STR_TO_DATE('31/01/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(212,20,25,STR_TO_DATE('20/12/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(213,41,20,STR_TO_DATE('29/01/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(214,51,12,STR_TO_DATE('05/07/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(215,5,1,STR_TO_DATE('12/04/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(216,40,3,STR_TO_DATE('24/02/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(217,79,4,STR_TO_DATE('27/06/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(218,15,10,STR_TO_DATE('01/11/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(219,42,22,STR_TO_DATE('28/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(220,17,9,STR_TO_DATE('29/01/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(221,38,13,STR_TO_DATE('09/05/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(222,79,2,STR_TO_DATE('06/12/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(223,74,3,STR_TO_DATE('07/12/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(224,46,8,STR_TO_DATE('05/06/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(225,78,22,STR_TO_DATE('11/08/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(226,45,2,STR_TO_DATE('20/04/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(227,72,31,STR_TO_DATE('11/11/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(228,18,17,STR_TO_DATE('21/03/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(229,29,3,STR_TO_DATE('13/08/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(230,66,11,STR_TO_DATE('05/06/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(231,36,16,STR_TO_DATE('28/04/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(232,26,2,STR_TO_DATE('23/10/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(233,32,1,STR_TO_DATE('31/10/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(234,62,14,STR_TO_DATE('25/07/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(235,12,4,STR_TO_DATE('08/07/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(236,38,32,STR_TO_DATE('24/02/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(237,29,16,STR_TO_DATE('28/07/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(238,36,25,STR_TO_DATE('07/05/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(239,76,7,STR_TO_DATE('13/06/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(240,28,16,STR_TO_DATE('15/08/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(241,60,13,STR_TO_DATE('26/08/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(242,8,3,STR_TO_DATE('28/07/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(243,25,1,STR_TO_DATE('30/07/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(244,62,29,STR_TO_DATE('24/08/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(245,51,8,STR_TO_DATE('01/09/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(246,27,23,STR_TO_DATE('08/02/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(247,69,12,STR_TO_DATE('25/06/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(248,51,12,STR_TO_DATE('04/07/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(249,7,4,STR_TO_DATE('01/05/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(250,31,15,STR_TO_DATE('29/10/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(251,14,23,STR_TO_DATE('15/01/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(252,14,1,STR_TO_DATE('21/05/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(253,39,25,STR_TO_DATE('26/12/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(254,79,24,STR_TO_DATE('31/05/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(255,40,15,STR_TO_DATE('18/03/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(256,51,13,STR_TO_DATE('13/04/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(257,61,1,STR_TO_DATE('11/02/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(258,15,24,STR_TO_DATE('02/03/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(259,10,22,STR_TO_DATE('21/01/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(260,67,10,STR_TO_DATE('08/07/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(261,79,11,STR_TO_DATE('11/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(262,19,32,STR_TO_DATE('04/05/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(263,35,11,STR_TO_DATE('01/08/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(264,27,13,STR_TO_DATE('15/12/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(265,30,22,STR_TO_DATE('22/12/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(266,8,7,STR_TO_DATE('26/06/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(267,70,9,STR_TO_DATE('20/03/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(268,56,18,STR_TO_DATE('29/01/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(269,13,19,STR_TO_DATE('06/03/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(270,61,2,STR_TO_DATE('18/06/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(271,47,13,STR_TO_DATE('18/09/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(272,30,22,STR_TO_DATE('19/02/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(273,18,22,STR_TO_DATE('31/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(274,34,29,STR_TO_DATE('27/10/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(275,32,21,STR_TO_DATE('03/06/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(276,9,28,STR_TO_DATE('30/03/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(277,62,24,STR_TO_DATE('23/03/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(278,44,22,STR_TO_DATE('29/04/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(279,27,5,STR_TO_DATE('25/03/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(280,61,28,STR_TO_DATE('14/07/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(281,5,13,STR_TO_DATE('04/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(282,43,19,STR_TO_DATE('15/03/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(283,34,19,STR_TO_DATE('05/06/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(284,35,5,STR_TO_DATE('19/02/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(285,13,12,STR_TO_DATE('23/09/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(286,74,18,STR_TO_DATE('26/12/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(287,70,31,STR_TO_DATE('15/08/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(288,42,17,STR_TO_DATE('15/06/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(289,51,24,STR_TO_DATE('30/07/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(290,45,30,STR_TO_DATE('15/01/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(291,70,17,STR_TO_DATE('07/10/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(292,77,7,STR_TO_DATE('06/01/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(293,74,25,STR_TO_DATE('25/09/2015',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(294,47,14,STR_TO_DATE('01/02/2018',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(295,10,2,STR_TO_DATE('18/04/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(296,16,21,STR_TO_DATE('03/10/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(297,48,5,STR_TO_DATE('17/09/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(298,72,3,STR_TO_DATE('10/02/2017',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(299,26,23,STR_TO_DATE('01/03/2016',"%d/%m%Y" ));
+INSERT INTO borrower (borrowerid,clientid,bookid,borrowdate, ) values(300,49,23,STR_TO_DATE('25/10/2016',"%d/%m%Y" ));
+
+/*Populates Book table */
+
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(1,'Build your database system','1','Science');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(2,'The red wall','2','Fiction');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(3,'The perfect match','3','Fiction');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(4,'Digital Logic','4','Science');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(5,'How to be a great lawyer','5','Law');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(6,'Manage successful negotiations','6','Society');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(7,'Pollution today','7','Science');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(8,'A gray park','2','Fiction');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(9,'How to be rich in one year','8','Humor');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(10,'Their bright fate','9','Fiction');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(11,'Black lines','10','Fiction');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(12,'History of theater','11','Literature');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(13,'Electrical transformers','12','Science');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(14,'Build your big data system','1','Science');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(15,'Right and left','13','Children');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(16,'Programming using Python','1','Science');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(17,'Computer networks','14','Science');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(18,'Performance evaluation','15','Science');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(19,'Daily exercise','16','Well being');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(20,'The silver uniform','17','Fiction');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(21,'Industrial revolution','18','History');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(22,'Green nature','19','Well being');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(23,'Perfect football','20','Well being');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(24,'The chocolate love','21','Humor');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(25,'Director and leader','22','Society');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(26,'Play football every week','20','well being');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(27,'Maya the bee','13','Children');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(28,'Perfect rugby','20','Well being');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(29,'The end','23','Fiction');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(30,'Computer security','1','Science');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(31,'Participate','22','Society');
+INSERT INTO  book (bookid,booktitle,bookauthor,genre) values(32,'Positive figures','3','Fiction');
+
+/* Populates author table */ 
+
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(1,'Sofia','Smith','Canada');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(2,'Maria','Brown','Brazil');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(3,'Elena','Martin','Mexico');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(4,'Zoe','Roy','France');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(5,'Sebastian','Lavoie','Canada');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(6,'Dylan','Garcia','Spain');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(7,'Ian','Cruz','Mexico');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(8,'Lucas','Smith','USA');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(9,'Fabian','Wilson','USA');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(10,'Liam','Taylor','Canada');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(11,'William','Thomas','Great Britain');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(12,'Logan','Moore','Canada');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(13,'Oliver','Martin','France');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(14,'Alysha','Thompson','Canada');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(15,'Isabelle','Lee','Canada');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(16,'Emily','Clark','USA');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(17,'John','Young','China');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(18,'David','Wright','Canada');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(19,'Thomas','Scott','Canada');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(20,'Helena','Adams','Canada');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(21,'Sofia','Carter','USA');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(22,'Liam','Parker','Canada');
+INSERT INTO  author (authorid,authorfirstname,authorlastname,authornationality) values(23,'Emily','Murphy','USA');
+
+
+/* 
+QUERY #1: Display all contents of the Clients table
+Displaying all contents of client table query 
+*/
+
+SELECT * 
+FROM client; 
+
+Query return results:
+
+'1','Kaiden','Hill',2006,'Student'
+'2','Alina','Morton',2010,'Student'
+'3','Fania','Brooks',1983,'Food Scientist'
+'4','Courtney','Jensen',2006,'Student'
+'5','Brittany','Hill',1983,'Firefighter'
+'6','Max','Rogers',2005,'Student'
+'7','Margaret','McCarthy',1981,'School Psychologist'
+'8','Julie','McCarthy',1973,'Professor'
+'9','Ken','McCarthy',1974,'Securities Clerk'
+'10','Britany','O Quinn',1984,'Violinist'
+'11','Conner','Gardner',1998,'Licensed Massage Therapist'
+'12','Mya','Austin',1960,'Parquet Floor Layer'
+'13','Thierry','Rogers',2004,'Student'
+'14','Eloise','Rogers',1984,'Computer Security Manager'
+'15','Gerard','Jackson',1979,'Oil Exploration Engineer'
+'16','Randy','Day',1986,'Aircraft Electrician'
+'17','Jodie','Page',1990,'Manufacturing Director'
+'18','Coral','Rice',1996,'Window Washer'
+'19','Ayman','Austin',2002,'Student'
+'20','Jaxson','Austin',1999,'Repair Worker'
+'21','Joel','Austin',1973,'Police Officer'
+'22','Alina','Austin',2010,'Student'
+'23','Elin','Austin',1962,'Payroll Clerk'
+'24','Ophelia','Wolf',2004,'Student'
+'25','Eliot','McGuire',1967,'Dentist'
+'26','Peter','McKinney',1968,'Professor'
+'27','Annabella','Henry',1974,'Nurse'
+'28','Anastasia','Baker',2001,'Student'
+'29','Tyler','Baker',1984,'Police Officer'
+'30','Lilian','Ross',1983,'Insurance Agent'
+'31','Thierry','Arnold',1975,'Bus Driver'
+'32','Angelina','Rowe',1979,'Firefighter'
+'33','Marcia','Rowe',1974,'Health Educator'
+'34','Martin','Rowe',1976,'Ship Engineer'
+'35','Adeline','Rowe',2005,'Student'
+'36','Colette','Rowe',1963,'Professor'
+'37','Diane','Clark',1975,'Payroll Clerk'
+'38','Caroline','Clark',1960,'Dentist'
+'39','Dalton','Clayton',1982,'Police Officer'
+'40','Steve','Clayton',1990,'Bus Driver'
+'41','Melanie','Clayton',1987,'Computer Engineer'
+'42','Alana','Wilson',2007,'Student'
+'43','Carson','Byrne',1995,'Food Scientist'
+'44','Conrad','Byrne',2007,'Student'
+'45','Ryan','Porter',2008,'Student'
+'46','Elin','Porter',1978,'Computer Programmer'
+'47','Tyler','Harvey',2007,'Student'
+'48','Arya','Harvey',2008,'Student'
+'49','Serena','Harvey',1978,'School Teacher'
+'50','Lilly','Franklin',1976,'Doctor'
+'51','Mai','Franklin',1994,'Dentist'
+'52','John','Franklin',1999,'Firefighter'
+'53','Judy','Franklin',1995,'Firefighter'
+'54','Katy','Lloyd',1992,'School Teacher'
+'55','Tamara','Allen',1963,'Ship Engineer'
+'56','Maxim','Lyons',1985,'Police Officer'
+'57','Allan','Lyons',1983,'Computer Engineer'
+'58','Marc','Harris',1980,'School Teacher'
+'59','Elin','Young',2009,'Student'
+'60','Diana','Young',2008,'Student'
+'61','Diane','Young',2006,'Student'
+'62','Alana','Bird',2003,'Student'
+'63','Anna','Becker',1979,'Security Agent'
+'64','Katie','Grant',1977,'Manager'
+'65','Joan','Grant',2010,'Student'
+'66','Bryan','Bell',2001,'Student'
+'67','Belle','Miller',1970,'Professor'
+'68','Peggy','Stevens',1990,'Bus Driver'
+'69','Steve','Williamson',1975,'HR Clerk'
+'70','Tyler','Williamson',1999,'Doctor'
+'71','Izabelle','Williamson',1990,'Systems Analyst'
+'72','Annabel','Williamson',1960,'Cashier'
+'73','Mohamed','Waters',1966,'Insurance Agent'
+'74','Marion','Newman',1970,'Computer Programmer'
+'75','Ada','Williams',1986,'Computer Programmer'
+'76','Sean','Scott',1983,'Bus Driver'
+'77','Farrah','Scott',1974,'Ship Engineer'
+'78','Christine','Lambert',1973,'School Teacher'
+'79','Alysha','Lambert',2007,'Student'
+'80','Maia','Grant',1984,'School Teacher'
+
+/*
+QUERY #2: First names, last names, ages and occupations of all clients
+Query to return firstname, lastname and a caculation to find the current year and subtract
+the dob year to caculate age. Finally adds the occupation of client. 
+*/
+
+SELECT clientfirstname, clientlastname, YEAR(CURDATE()) - clientdob AS 'Age', occupation
+FROM client;
+
+'Kaiden','Hill','16','Student'
+'Alina','Morton','12','Student'
+'Fania','Brooks','39','Food Scientist'
+'Courtney','Jensen','16','Student'
+'Brittany','Hill','39','Firefighter'
+'Max','Rogers','17','Student'
+'Margaret','McCarthy','41','School Psychologist'
+'Julie','McCarthy','49','Professor'
+'Ken','McCarthy','48','Securities Clerk'
+'Britany','O'Quinn','38','Violinist'
+'Conner','Gardner','24','Licensed Massage Therapist'
+'Mya','Austin','62','Parquet Floor Layer'
+'Thierry','Rogers','18','Student'
+'Eloise','Rogers','38','Computer Security Manager'
+'Gerard','Jackson','43','Oil Exploration Engineer'
+'Randy','Day','36','Aircraft Electrician'
+'Jodie','Page','32','Manufacturing Director'
+'Coral','Rice','26','Window Washer'
+'Ayman','Austin','20','Student'
+'Jaxson','Austin','23','Repair Worker'
+'Joel','Austin','49','Police Officer'
+'Alina','Austin','12','Student'
+'Elin','Austin','60','Payroll Clerk'
+'Ophelia','Wolf','18','Student'
+'Eliot','McGuire','55','Dentist'
+'Peter','McKinney','54','Professor'
+'Annabella','Henry','48','Nurse'
+'Anastasia','Baker','21','Student'
+'Tyler','Baker','38','Police Officer'
+'Lilian','Ross','39','Insurance Agent'
+'Thierry','Arnold','47','Bus Driver'
+'Angelina','Rowe','43','Firefighter'
+'Marcia','Rowe','48','Health Educator'
+'Martin','Rowe','46','Ship Engineer'
+'Adeline','Rowe','17','Student'
+'Colette','Rowe','59','Professor'
+'Diane','Clark','47','Payroll Clerk'
+'Caroline','Clark','62','Dentist'
+'Dalton','Clayton','40','Police Officer'
+'Steve','Clayton','32','Bus Driver'
+'Melanie','Clayton','35','Computer Engineer'
+'Alana','Wilson','15','Student'
+'Carson','Byrne','27','Food Scientist'
+'Conrad','Byrne','15','Student'
+'Ryan','Porter','14','Student'
+'Elin','Porter','44','Computer Programmer'
+'Tyler','Harvey','15','Student'
+'Arya','Harvey','14','Student'
+'Serena','Harvey','44','School Teacher'
+'Lilly','Franklin','46','Doctor'
+'Mai','Franklin','28','Dentist'
+'John','Franklin','23','Firefighter'
+'Judy','Franklin','27','Firefighter'
+'Katy','Lloyd','30','School Teacher'
+'Tamara','Allen','59','Ship Engineer'
+'Maxim','Lyons','37','Police Officer'
+'Allan','Lyons','39','Computer Engineer'
+'Marc','Harris','42','School Teacher'
+'Elin','Young','13','Student'
+'Diana','Young','14','Student'
+'Diane','Young','16','Student'
+'Alana','Bird','19','Student'
+'Anna','Becker','43','Security Agent'
+'Katie','Grant','45','Manager'
+'Joan','Grant','12','Student'
+'Bryan','Bell','21','Student'
+'Belle','Miller','52','Professor'
+'Peggy','Stevens','32','Bus Driver'
+'Steve','Williamson','47','HR Clerk'
+'Tyler','Williamson','23','Doctor'
+'Izabelle','Williamson','32','Systems Analyst'
+'Annabel','Williamson','62','Cashier'
+'Mohamed','Waters','56','Insurance Agent'
+'Marion','Newman','52','Computer Programmer'
+'Ada','Williams','36','Computer Programmer'
+'Sean','Scott','39','Bus Driver'
+'Farrah','Scott','48','Ship Engineer'
+'Christine','Lambert','49','School Teacher'
+'Alysha','Lambert','15','Student'
+'Maia','Grant','38','School Teacher'
+
+/* 
+QUERY #3 : First and last names of clients that borrowed books in March 2018
+First and last name of all users who borrowed a book in 2018 query joins the client and borrower table toghter 
+through clientid and where condition checks to verify that the year of borrowdate is = 2018 
+*/  
+
+SELECT client.clientfirstname, client.clientlastname
+FROM client
+JOIN Borrower
+ON client.clientid = borrower.clientId
+WHERE borrower.borrowdate BETWEEN '2018-03-01' AND '2018-03-31';
+
+'Gerard','Jackson'
+'Tyler','Baker'
+'Angelina','Rowe'
+'Marcia','Rowe'
+'Carson','Byrne'
+'Katy','Lloyd'
+'Alysha','Lambert'
+'Maia','Grant'
+
+
+/*
+QUERY #4 : First and last names of the top 5 authors clients borrowed in 2017
+Select statement gets authors first and last name and COUNT(*) to count number of books borrowed in 2017 AS statement 
+used to make table look more presentable, used join statements to join the borrower and author table. borrower table is used to
+count the # borrowed author table is used to access first and last name of author. Where statement is how we check that 
+the year is 2017. Group BY is needed because its a aggregated query. Orderby orders it from most borrowed to least borrowed 
+and finally limit 5 makes sure only the top 5 are returned 
+*/
+
+SELECT author.authorfirstname AS 'First Name', author.authorlastname AS 'Last Name', COUNT(*) AS '2017 # of Borrowed Books'
+FROM book
+JOIN borrower
+ON book.bookid = borrower.bookid 
+JOIN author
+ON author.authorid = book.bookauthor
+WHERE YEAR(borrower.borrowdate) = 2017
+GROUP BY author.authorfirstname, author.authorlastname
+ORDER BY COUNT(*) DESC
+LIMIT 5; 
+
+'Elena','Martin','7'
+'Logan','Moore','7'
+'Sofia','Smith','7'
+'Maria','Brown','6'
+'Zoe','Roy','5'
+
+/* 
+QUERY #5 : Nationalities of the least 5 authors that clients borrowed during the years 2015-2017
+Select statment gets author nationality we use two join statements to connect the book table and with the book table
+we join the borrower table. From there the where clause checks to make sure the borrowdate is BETWEEN 2015 and 2017. Between is
+inclusive meaning it includes both the start and end date. Aggreate function calls for group by. COUNT(*) counts the 
+occurances of borrowed books from that nationality. ORDER By with ASC orders them from least to greatest. LIMIT makes sure only
+5 results appear.  
+*/
+
+SELECT author.authornationality , COUNT(*) 
+FROM author
+JOIN book
+ON book.bookauthor = author.authorid
+JOIN borrower
+ON borrower.bookid = book.bookid
+WHERE YEAR(BorrowDate) BETWEEN 2015 AND 2017
+GROUP BY author.authornationality 
+ORDER BY COUNT(*) ASC
+LIMIT 5; 
+
+'Spain','3'
+'Great Britain','6'
+'China','7'
+'Brazil','18'
+'France','24'
+
+
+/* 
+QUERY #6 : The book that was most borrowed during the years 2015-2017
+Query gets the book title from book and joins the borrowers table.  Second the BETWEEN clause checks that the borrowdate is 
+between 2015 and 2017. Aggreagate function calls for GROUP BY we ORDER BY most borrowed to least borrowed and set the LIMIT
+to 1 to view the most borrowed
+*/
+
+SELECT  book.booktitle, COUNT(*)
+FROM book
+JOIN borrower
+ON book.bookid = borrower.bookid
+WHERE YEAR(borrowdate) BETWEEN 2015 AND 2017
+GROUP BY book.booktitle
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+
+'The perfect match','13'
+
+
+/* 
+QUERY #7: Top borrowed genres for client born in years 1970-1980
+Select statement gets the books genre the join statement adds the borrower table so we can see how many books of each genre
+were borrowed. Secondly we join the client table in order to use where statement to check the clients DOB. We group by 
+genre and then order it from top borrowed to least borrowed
+*/
+
+SELECT book.genre, COUNT(*)
+FROM book
+JOIN borrower
+ON book.bookid = borrower.bookid
+Join client
+ON borrower.clientid = client.clientid
+WHERE clientdob BETWEEN 1970 AND 1980
+GROUP BY genre
+ORDER BY COUNT(*) DESC;
+
+'Science','24'
+'Fiction','16'
+'Well being','15'
+'Humor','5'
+'Society','4'
+'Law','3'
+'Literature','3'
+'Children','3'
+'History','3'
+
+
+
+/* 
+QUERY #8 : Top 5 occupations that borrowed the most in 2016
+Query starts by selecting clients occupation from the client table we then join borrower to have access to 
+all the books that have been borrowed. We join the tables through clientid. The count(*) counts the number of books borrowed
+by each occupation and group by is used for aggragate function. Limit of 5 gives us the top 5 borrowed. 
+*/
+
+SELECT client.occupation, COUNT(*)
+FROM client 
+JOIN borrower
+ON client.clientid = borrower.clientid
+WHERE YEAR(borrower.borrowdate) = 2016
+GROUP BY client.occupation
+ORDER BY COUNT(*) desc
+LIMIT 5;
+
+'Student','32'
+'Bus Driver','8'
+'Dentist','6'
+'Computer Programmer','6'
+'Police Officer','5'
+
+
+/* 
+QUERY #9 : Average number of borrowed books by job title
+We first grab client occupation and join the borrower table. The group by is used because an aggreagte function
+is in use and order by goes from top avg to least avg. To find the avg we count the number of books borrowed by each 
+occupation from there we divide by the number of clients with that occupation. The DISTINCT keyword makes sure this is 
+possible.
+*/
+
+SELECT client.occupation, COUNT(borrower.bookid) / COUNT(DISTINCT client.clientid) AS 'AVG Borrowed'
+FROM client 
+JOIN borrower
+ON client.clientid = borrower.clientid
+GROUP BY client.occupation
+ORDER BY COUNT(borrower.bookid) / COUNT(DISTINCT client.clientid) DESC;
+
+'Nurse','7.0000'
+'Computer Security Manager','6.0000'
+'Computer Programmer','5.6667'
+'Dentist','5.6667'
+'Cashier','5.0000'
+'Food Scientist','5.0000'
+'Manufacturing Director','5.0000'
+'Oil Exploration Engineer','5.0000'
+'Police Officer','4.5000'
+'Student','4.4211'
+'Bus Driver','4.0000'
+'Doctor','4.0000'
+'Violinist','4.0000'
+'HR Clerk','4.0000'
+'Insurance Agent','4.0000'
+'Systems Analyst','4.0000'
+'Ship Engineer','4.0000'
+'School Teacher','3.6000'
+'Professor','3.5000'
+'Firefighter','3.2500'
+'Computer Engineer','3.0000'
+'Manager','3.0000'
+'Payroll Clerk','3.0000'
+'Repair Worker','3.0000'
+'School Psychologist','2.0000'
+'Securities Clerk','2.0000'
+'Security Agent','2.0000'
+'Parquet Floor Layer','2.0000'
+'Aircraft Electrician','2.0000'
+'Licensed Massage Therapist','2.0000'
+'Health Educator','2.0000'
+'Window Washer','2.0000'
+
+
+
+/* 
+QUERY #10: Create a VIEW and display the titles that were borrowed by at least 20% of clients
+Query first creates a view called twentyPercentBorrowed, we then select the book title and count the number of times each 
+bookid has been borrowed. We then count the number of total books that have been borrwed. By dividing the 
+number of times the book has been borrowed by the total number of book borrowed we get the total % of each book borrowed. 
+I times the final result by 100 to make the percentage look cleaner.  JOINS are used to bring allow tables to be 
+part of queries. GROUP by is used because of the aggregate function. We have to use a having statment instead fo Where this 
+just ensures results returned are greater then 20%
+*/
+
+CREATE VIEW twentyPercentBorrowed AS 
+SELECT book.booktitle, COUNT(DISTINCT borrower.bookid) / COUNT(borrower.bookid) * 100 AS 'Percent'
+FROM borrower
+JOIN book 
+ON book.bookid = borrower.bookid
+GROUP BY book.booktitle
+HAVING COUNT(distinct borrower.bookid) / COUNT(borrower.bookid) * 100 >= 20
+ORDER BY COUNT(*) ASC;
+
+# To view results of the query
+SELECT * FROM twentyPercentBorrowed;
+
+/* QUERY #11 : The top month of borrows in 2017 
+We start by selecting the monthname of each month books have been borrowed in Using just MONTH() will return a number and the 
+name of the month looks better in the DB. We then use COUNT() to count the number of books borrowed in each month. The WHERE
+statment checks that the YEAR the books were borrowed in is 2017. We set a LIMIT to only view the top results of the table. 
+*/ 
+
+SELECT MONTHNAME(borrower.borrowdate) AS 'Month', COUNT(MONTH(borrower.borrowdate)) AS 'Books Borrowed'
+FROM borrower
+WHERE YEAR(borrower.borrowdate) = 2017
+GROUP BY MONTHNAME(borrower.borrowdate)
+ORDER BY COUNT(MONTH(borrower.borrowdate)) DESC 
+LIMIT 3;
+
+/*
+QUERY #12: Average number of borrows by age
+First we cauculate the age of each user in the database. We then count the number of borrows made by clientids of that 
+age. From there we divide that by the total number of unique clientids.  With this caculation we are easily able to find the AVG
+number of books borrowed by each age group. We join borrower to access the borrower.clientid to count books from each age borrowered
+and the Group By is used because its a aggreagte functon. Order By goes from oldest to youngest. 
+ */
+
+SELECT YEAR(CURDATE()) - clientdob AS 'Age', COUNT(borrower.clientid) / COUNT(DISTINCT client.clientid)
+FROM client
+JOIN borrower
+ON borrower.clientid = client.clientid
+GROUP BY Age
+ORDER BY Age desc;
+
+'62','3.6667'
+'60','3.0000'
+'59','5.0000'
+'56','1.0000'
+'55','3.0000'
+'54','4.0000'
+'52','4.5000'
+'49','3.6667'
+'48','3.2500'
+'47','2.6667'
+'46','3.5000'
+'45','3.0000'
+'44','5.5000'
+'43','4.3333'
+'42','1.0000'
+'41','2.0000'
+'40','3.0000'
+'39','3.7500'
+'38','5.5000'
+'37','4.0000'
+'36','3.0000'
+'35','2.0000'
+'32','5.5000'
+'30','3.0000'
+'28','10.0000'
+'27','4.5000'
+'26','2.0000'
+'24','2.0000'
+'23','3.6667'
+'21','4.5000'
+'20','2.0000'
+'19','5.0000'
+'18','3.0000'
+'17','4.5000'
+'16','5.5000'
+'15','5.0000'
+'14','6.0000'
+'12','2.3333'
+
+
+/*
+QUERY #13: The oldest and the youngest clients of the library
+Simple subquery created to check that the clients age that is being selected in the first select statements is equal to 
+the max age of all ages and mininum age of all ages from the db. Once we caculate that the outer select statement returns the 
+first and last name and AGE of all clients that have the same age as the MAX and MIN age from the subquery. 
+ */
+
+SELECT client.clientfirstname, client.clientlastname, YEAR(CURDATE()) - clientdob AS 'AGE'
+FROM client
+WHERE YEAR(CURDATE()) - clientdob = (SELECT MAX(YEAR(CURDATE()) - clientdob)FROM client)
+OR YEAR(CURDATE()) - clientdob = (SELECT MIN(YEAR(CURDATE()) - clientdob)FROM client)
+ORDER BY Age DESC;
+
+/* 
+QUERY #14:  First and last names of authors that wrote books in more than one genre
+This query selects the authors first and last name.We then count the distinct book genre tied to each authors name
+by joining the author table to book table. We use the group by becuase it is an aggregate function. Because of this we
+have to use a HAVING statement instead of WHERE. The HAVING statement checks to see if any author has books in more then 
+one genre which we do NOT. 
+*/
+
+SELECT author.authorfirstname, author.authorlastname, COUNT(DISTINCT book.genre)
+FROM book
+JOIN author 
+ON book.bookid = author.authorid
+GROUP BY author.authorfirstname, author.authorlastname
+HAVING COUNT(DISTINCT book.genre) > 1;  
+
+NO RESULTS RETURNED NO AUTHOR HAS A BOOK IN MORE THEN TWO GENRES
+
+
+
+
