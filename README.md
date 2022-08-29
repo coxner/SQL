@@ -7,6 +7,7 @@ This directory is a collection of files containing query examples from DB manage
 ## Jump Around
 [Projects](#Projects)
 *[SQL Essay](#SQL-Essay)
+*[assignment.txt](#assignment.txt)
 [Files](#Files)
 
 
