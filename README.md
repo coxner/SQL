@@ -6,6 +6,8 @@ This directory is a collection of files containing query examples from DB manage
 
 ## Jump Around
 [Projects](#Projects)
+  [SQL Essay](#SQL Essay)
+[Files](#Files)
 
 
 
@@ -17,3 +19,6 @@ This directory is a collection of files containing query examples from DB manage
 ### assignment.txt
 
 ### 303 Final Assignment
+
+
+## Files
