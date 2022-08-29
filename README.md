@@ -11,6 +11,7 @@ This directory is a collection of files containing query examples from DB manage
   - [303 Final Assignment](#303-Final-Assignment)
 - [Files](#Files)
   - [notes.sql](#notes.sql)
+  - [basicNotesCont.sql](#basicNotesCont.sql)
 
 
 
@@ -27,3 +28,6 @@ This directory is a collection of files containing query examples from DB manage
 ## Files
 
 ### [notes.sql](https://github.com/coxner/SQL/blob/master/notes.sql)
+
+
+### [basicNotesCont.sql](https://github.com/coxner/SQL/blob/master/basicNotesCont.sql)
