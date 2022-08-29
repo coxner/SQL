@@ -8,7 +8,9 @@ This directory is a collection of files containing query examples from DB manage
 - [Projects](#Projects)
   - [SQL Essay](#SQL-Essay)
   - [assignment.txt](#assignment.txt)
+  - [303 Final Assignment](#303-Final-Assignment)
 - [Files](#Files)
+  - [notes.sql](#notes.sql)
 
 
 
@@ -23,3 +25,5 @@ This directory is a collection of files containing query examples from DB manage
 
 
 ## Files
+
+### [notes.sql](https://github.com/coxner/SQL/blob/master/notes.sql)
